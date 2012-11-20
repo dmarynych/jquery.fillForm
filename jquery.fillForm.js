@@ -12,15 +12,26 @@
         base.$el.data("fillForm", base);
         
         base.init = function(){
-            base.options = $.extend({},$.fillForm.defaultOptions, options);
+            base.options = $.extend({}, $.fillForm.defaultOptions, options);
             // Put your initialization code here
 			
 			console.log(options);
             $.each(options, function(key, val) {
-                var el = base.$el.find('[name='+ key +']');
-                if(el.length !== 0) {
+                var el = base.$el.find('[name='+ key +']'),
+				type = el.attr('type');
+				
+				if( type === 'checkbox') {
+					if( val !== false && val != 0 ) {
+                        el.attr('checked', val);
+                    }
+					else {
+						el.attr('checked', false);
+					}
+				}
+				else if(el.length !== 0 && el.attr('type') !== 'checkbox' ) {
                     el.val(val);
                 }
+				
             });
         };
         
