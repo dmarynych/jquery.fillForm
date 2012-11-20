@@ -16,6 +16,6 @@ Example:
 ~~~js
 $('#form').fillForm({
     title: 'Your title',
-    'description': 'Your description'
+    description: 'Your description'
 });
 ~~~
