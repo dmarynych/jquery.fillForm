@@ -15,7 +15,6 @@
             base.options = $.extend({}, $.fillForm.defaultOptions, options);
             // Put your initialization code here
 			
-			console.log(options);
             $.each(options, function(key, val) {
                 var el = base.$el.find('[name='+ key +']'),
 				type = el.attr('type');
